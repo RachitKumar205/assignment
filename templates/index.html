@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Trending Topics</title>
+    <style>
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click here to run the script.</h1>
+    <button onclick="runScript()">Run Script</button>
+    <pre id="result"></pre>
+
+    <script>
+        function runScript() {
+            fetch('/run_script')
+                .then(response => response.json())
+                .then(data => {
+                    let output = `These are the most happening topics as on ${data.result.timestamp}
+
+- ${data.result.trend1}
+- ${data.result.trend2}
+- ${data.result.trend3}
+- ${data.result.trend4}
+- ${data.result.trend5}
+
+The IP address used for this query was ${data.result.ip_address.http.split('@')[1]}.
+
+Here's a JSON extract of this record from the MongoDB:
+
+${JSON.stringify(data.result)}
+`;
+                    document.getElementById('result').innerText = output;
+                });
+        }
+    </script>
+</body>
+</html>
