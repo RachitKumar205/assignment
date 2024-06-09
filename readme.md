@@ -62,10 +62,3 @@ The script rotates through a list of user-agents for each run to avoid detection
 ### Proxy Rotation
 
 The script includes functionality for rotating proxies using Webshare.io. However, due to running out of free credits, this part of the code is commented out. You can uncomment the relevant lines and provide your Webshare.io API key to enable this feature.
-
-## Important Notes
-
-- **Credentials Security**: Ensure your credentials are stored securely and not exposed in public repositories.
-- **Proxy Usage**: Using proxies can help avoid IP bans, but it is essential to comply with Twitter's terms of service.
-- **Error Handling**: The script includes basic error handling to catch exceptions during the scraping process.
-
